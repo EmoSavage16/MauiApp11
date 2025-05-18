@@ -1,0 +1,104 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp11.GaleriPage"
+             BackgroundColor="#121212"
+             BackgroundImageSource="arkaplan.jpg"
+             Title="">
+
+    
+    <ScrollView>
+        
+        <Grid x:Name="MainGrid" Padding="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="ListColumn" Width="1*" />
+                <ColumnDefinition x:Name="FilterColumn" Width="0" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Liste Alanı -->
+            <StackLayout Grid.Column="0" Spacing="15">
+                <Button Text="Filtreleri Göster / Gizle"
+                        Clicked="ToggleFilterPanel"
+                        BackgroundColor="#1E88E5"
+                        TextColor="White"
+                        CornerRadius="10"
+                        HeightRequest="45" />
+
+                <CollectionView x:Name="AracListView" SelectionMode="Single" SelectionChanged="AracListView_SelectionChanged">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame BorderColor="#333"
+                                   BackgroundColor="#1E1E1E"
+                                   CornerRadius="15"
+                                   Padding="15"
+                                   HasShadow="True">
+                                <StackLayout Spacing="5">
+                                    <Label Text="{Binding Marka}" FontSize="20" TextColor="White" FontAttributes="Bold" />
+                                    <Label Text="{Binding Model}" FontSize="16" TextColor="#CCCCCC" />
+                                    <Label Text="{Binding Yil, StringFormat='Yıl: {0}'}" TextColor="White" />
+                                    <Label Text="{Binding Vites}" TextColor="White" />
+                                    <Label Text="{Binding KM, StringFormat='KM: {0:N0}'}" TextColor="White" />
+                                    <Label Text="{Binding Fiyat, StringFormat='₺{0:N0}'}" TextColor="LightGreen" FontAttributes="Bold" />
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+
+            <!-- Filtre Paneli -->
+            <ScrollView Grid.Column="1" x:Name="FilterPanel" IsVisible="False" BackgroundColor="#1A1A1A" Padding="20">
+                <StackLayout Spacing="15">
+                    <Label Text="Filtreler"
+                           FontSize="24"
+                           TextColor="White"
+                           HorizontalOptions="Center"
+                           FontAttributes="Bold" />
+
+                    <Label Text="Marka" TextColor="White" />
+                    <Entry x:Name="MarkaEntry" Placeholder="Örn: BMW" TextColor="White" PlaceholderColor="Gray" />
+
+                    <Label Text="Model" TextColor="White" />
+                    <Entry x:Name="ModelEntry" Placeholder="Örn: 320i" TextColor="White" PlaceholderColor="Gray" />
+
+                    <Label Text="Min Fiyat" TextColor="White" />
+                    <Entry x:Name="MinFiyatEntry" Placeholder="₺ Min" Keyboard="Numeric" TextColor="White" PlaceholderColor="Gray" />
+
+                    <Label Text="Max Fiyat" TextColor="White" />
+                    <Entry x:Name="MaxFiyatEntry" Placeholder="₺ Max" Keyboard="Numeric" TextColor="White" PlaceholderColor="Gray" />
+
+                    <Label Text="Yıl" TextColor="White" />
+                    <Entry x:Name="YilEntry" Placeholder="Örn: 2020" Keyboard="Numeric" TextColor="White" PlaceholderColor="Gray" />
+
+                    <Label Text="Yakıt" TextColor="White" />
+                    <Entry x:Name="YakitEntry" Placeholder="Örn: Dizel" TextColor="White" PlaceholderColor="Gray" />
+
+                    <Label Text="Vites" TextColor="White" />
+                    <Entry x:Name="VitesEntry" Placeholder="Örn: Otomatik" TextColor="White" PlaceholderColor="Gray" />
+
+                    <Label Text="Min KM" TextColor="White" />
+                    <Entry x:Name="MinKMEntry" Placeholder="Örn: 50000" Keyboard="Numeric" TextColor="White" PlaceholderColor="Gray" />
+
+                    <Label Text="Max KM" TextColor="White" />
+                    <Entry x:Name="MaxKMEntry" Placeholder="Örn: 200000" Keyboard="Numeric" TextColor="White" PlaceholderColor="Gray" />
+
+                    <Label Text="Kasa Tipi" TextColor="White" />
+                    <Entry x:Name="KasaEntry" Placeholder="Örn: Sedan" TextColor="White" PlaceholderColor="Gray" />
+
+                    <Button Text="Filtrele"
+                            Clicked="OnFiltreleClicked"
+                            BackgroundColor="Green"
+                            TextColor="White"
+                            CornerRadius="10"
+                            HeightRequest="45" />
+
+                    <Button Text="Temizle"
+                            Clicked="OnTemizleClicked"
+                            BackgroundColor="DarkRed"
+                            TextColor="White"
+                            CornerRadius="10"
+                            HeightRequest="45" />
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ScrollView>
+</ContentPage>

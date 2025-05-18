@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp11.CalisanlarPage"
+             Title=""
+        BackgroundColor="#1E1E1E">
+
+    <StackLayout Padding="20">
+        <Label Text="Çalışan Listesi"
+               FontSize="24"
+               FontAttributes="Bold"
+               TextColor="White"
+               HorizontalOptions="Center" />
+
+        <CollectionView x:Name="CalisanlarCollectionView" SelectionMode="Single" SelectionChanged="OnCalisanSelected">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="Gray" Margin="5" Padding="10">
+                        <StackLayout>
+                            <Label Text="{Binding Ad}" TextColor="White" FontAttributes="Bold"/>
+                            <Label Text="{Binding Soyad}" TextColor="White"/>
+                            <Label Text="{Binding Pozisyon}" TextColor="White"/>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Yeni Çalışan Ekleme Formu -->
+        <Label Text="Yeni Çalışan Ekle"
+               FontSize="20"
+               TextColor="White"
+               Margin="0,20,0,0" />
+
+        <Entry x:Name="AdEntry" Placeholder="Ad" />
+        <Entry x:Name="SoyadEntry" Placeholder="Soyad" />
+        <Entry x:Name="PozisyonEntry" Placeholder="Pozisyon" />
+        <Entry x:Name="EmailEntry" Placeholder="Email" />
+        <Entry x:Name="TelefonEntry" Placeholder="Telefon" />
+        <Entry x:Name="MaasEntry" Placeholder="Maaş" Keyboard="Numeric" />
+
+        <Button Text="Çalışan Ekle"
+                Clicked="OnEkleClicked"
+                BackgroundColor="#4CAF50"
+                TextColor="White" />
+        
+        <!-- Silme Butonu -->
+        <Button Text="Seçilen Çalışanı Sil"
+                Clicked="OnSilClicked"
+                BackgroundColor="#F44336"
+                TextColor="White" />
+
+        <Button Text="Çalışan Güncelle"
+        Clicked="OnGuncelleClicked"
+        BackgroundColor="#2196F3"
+        TextColor="White"
+        Margin="0,10,0,0" />
+
+    </StackLayout>
+</ContentPage>

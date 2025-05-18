@@ -1,0 +1,106 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp11.MainPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid>
+
+        <!-- Arka Plan Resmi -->
+        <Image Source="arkaplan.jpg"
+               Aspect="AspectFill"
+               Opacity="1"
+               ZIndex="-3" />
+
+        <!-- Sayfa İçeriği -->
+        <ScrollView>
+            <VerticalStackLayout Padding="30" Spacing="25" VerticalOptions="CenterAndExpand">
+                
+                
+
+                <!-- Logo -->
+                <Image Source="logo.png"
+                       HeightRequest="200"
+                       WidthRequest="300"
+                       HorizontalOptions="Center" />
+
+                <!-- Başlık -->
+                <Label Text="Devam etmek için giriş yapın"
+                       FontSize="16"
+                       HorizontalOptions="Center"
+                       TextColor="#BBBBBB"
+                       Margin="0,-10,0,20"/>
+
+                <!-- E-posta Girişi -->
+                <Entry x:Name="EpostaEntry"
+                       Placeholder="E-posta"
+                       Keyboard="Email"
+                       TextColor="White"
+                       PlaceholderColor="#888"
+                       BackgroundColor="Transparent" />
+
+                <!-- Şifre Girişi -->
+                <Entry x:Name="SifreEntry"
+                       Placeholder="Şifre"
+                       IsPassword="True"
+                       TextColor="White"
+                       PlaceholderColor="#888"
+                       BackgroundColor="Transparent" />
+
+                <!-- Giriş Yap Butonu -->
+                <Border StrokeThickness="0"
+        StrokeShape="RoundRectangle 15"
+        HeightRequest="45"
+        WidthRequest="150"
+        HorizontalOptions="Center"
+        Margin="0,10,0,0">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="#FF9800" Offset="0.0" />
+                            <GradientStop Color="#F44336" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Button Text="Giriş Yap"
+            Clicked="OnGirisYapClicked"
+            BackgroundColor="Transparent"
+            TextColor="White"
+            FontAttributes="Bold"
+            FontSize="16"
+            CornerRadius="15"/>
+                </Border>
+
+                <!-- Hesabınız yok mu? Kayıt Ol -->
+                <Label HorizontalOptions="Center"
+                       FontSize="14"
+                       TextColor="LightGray">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Hesabınız yok mu? " />
+                            <Span Text="Kayıt Ol"
+                                  TextColor="#00BFFF"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnKayitOlClicked" />
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Sağ Alt Köşede Admin Girişi -->
+        <Label Text="Admin Girişi"
+               TextColor="LightGray"
+               FontAttributes="Italic"
+               FontSize="13"
+               HorizontalOptions="End"
+               VerticalOptions="End"
+               Margin="0,0,15,10">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnAdminGirisYapClicked" />
+            </Label.GestureRecognizers>
+        </Label>
+
+    </Grid>
+</ContentPage>

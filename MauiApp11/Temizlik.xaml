@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp11.Temizlik"
+             BackgroundColor="#1C1C1E"
+             BackgroundImageSource="arkaplan.jpg"
+             Padding="0">
+
+    <ScrollView>
+        <StackLayout Spacing="20" Padding="0,0,0,20">
+
+            <!-- BÖLÜM 1: KATEGORİLER ve ARKA PLAN RESMİ -->
+            <Grid HeightRequest="400">
+                <BoxView BackgroundColor="#99000000" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" />
+
+                <Grid ColumnDefinitions="*, *, *" VerticalOptions="Center" Padding="10">
+                    <!-- Detaylı Temizlik -->
+                    <Grid Grid.Column="0">
+                        <Image Source="pasta.png" Aspect="AspectFill" Opacity="0.6" />
+                        <Label Text="Detaylı Temizlik" TextColor="White" HorizontalOptions="Center" FontSize="16" FontAttributes="Bold" VerticalOptions="Center" />
+                    </Grid>
+
+                    <!-- Detaylı Temizlik -->
+                    <Grid Grid.Column="0">
+                        <Image Source="pasta.png" Aspect="AspectFill" Opacity="0.6" />
+                        <Label Text="Detaylı Temizlik" TextColor="White" HorizontalOptions="Center" FontSize="16" FontAttributes="Bold" VerticalOptions="Center" />
+                    </Grid>
+
+                    <!-- Cam Filmi -->
+                    <Grid Grid.Column="1">
+                        <Image Source="camfilmi.png" Aspect="AspectFill" Opacity="0.6" />
+                        <Label Text="Cam Filmi" TextColor="White" HorizontalOptions="Center" FontSize="16" FontAttributes="Bold" VerticalOptions="Center" />
+                    </Grid>
+
+                    <!-- PPF -->
+                    <Grid Grid.Column="2">
+                        <Image Source="ppfkaplama.png" Aspect="AspectFill" Opacity="0.6" />
+                        <Label Text="PPF" TextColor="White" HorizontalOptions="Center" FontSize="16" FontAttributes="Bold" VerticalOptions="Center" />
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <!-- İşlem Ekleme -->
+            <Frame Margin="20,10" Padding="15" BackgroundColor="#2C2C2E" CornerRadius="12" HasShadow="True">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Randevu Oluştur" FontSize="20" TextColor="White" FontAttributes="Bold"/>
+
+                    <Entry Placeholder="Plaka" Text="{Binding Plaka}" TextColor="White" PlaceholderColor="Gray"/>
+                    <Entry Placeholder="İşlem Adı" Text="{Binding IslemAdi}" TextColor="White" PlaceholderColor="Gray"/>
+
+                    <!-- Araç Türü Picker -->
+                    <Picker Title="Araç Türü" ItemsSource="{Binding AracTurleri}" SelectedItem="{Binding AracTuru}" TextColor="White"/>
+
+                    <Picker Title="Kategori" SelectedItem="{Binding KategoriSecim}" TextColor="White">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Dış Temizlik</x:String>
+                                <x:String>İç Temizlik</x:String>
+                                <x:String>Cam Filmi</x:String>
+                                <x:String>PPF</x:String>
+                                <x:String>İç Dış Yıkama</x:String>
+                                <!-- İç Dış Yıkama ekledim -->
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Button Text="Ekle" Command="{Binding EkleCommand}" BackgroundColor="#007AFF" TextColor="White" CornerRadius="8"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Sıradaki İşlemler -->
+            <StackLayout Padding="20,0">
+                <Label Text="Sıradaki İşlemler" FontSize="20" TextColor="White" FontAttributes="Bold"/>
+                <CollectionView ItemsSource="{Binding TemizlikListesi}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame BackgroundColor="#1C1C1E" Padding="10" CornerRadius="8" Margin="0,5" BorderColor="Gray">
+                                <StackLayout>
+                                    <Label Text="{Binding IslemAdi}" FontSize="16" TextColor="White"/>
+                                    <Label Text="{Binding AracTuru}" FontSize="13" TextColor="Gray"/>
+                                    <Label Text="{Binding Fiyat, StringFormat='Fiyat: {0:C2}'}" FontSize="13" TextColor="LightGreen"/>
+                                    <Label Text="{Binding Sure, StringFormat='Süre: {0} dk'}" FontSize="13" TextColor="LightGray"/>
+                                    <Label Text="{Binding Kategori}" FontSize="13" TextColor="Orange"/>
+                                    <Label Text="{Binding Durum}" FontSize="13" TextColor="LightBlue"/>
+                                    <Label Text="{Binding Plaka, FallbackValue='Plaka Bilgisi Yok'}" TextColor="White"/>
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

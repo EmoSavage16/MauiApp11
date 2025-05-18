@@ -1,0 +1,49 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp11.KiralamaDuzenlePage"
+             Title="">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Label Text="Başlık:" FontAttributes="Bold" />
+            <Entry x:Name="BaslikEntry" />
+
+            <Label Text="Açıklama:" FontAttributes="Bold" />
+            <Entry x:Name="AciklamaEntry" />
+
+            <Label Text="Marka:" FontAttributes="Bold" />
+            <Entry x:Name="MarkaEntry" />
+
+            <Label Text="Model:" FontAttributes="Bold" />
+            <Entry x:Name="ModelEntry" />
+
+            <Label Text="Yıl:" FontAttributes="Bold" />
+            <Entry x:Name="YilEntry" Keyboard="Numeric" />
+                       
+            <Label Text="Kiralama Tarihi:" FontAttributes="Bold" />
+            <Label Text="Kiralama Başlangıç Tarihi:" FontAttributes="Bold" />
+            
+            <DatePicker x:Name="BaslangicTarihiPicker" />
+
+            <Label Text="Kiralama Bitiş Tarihi:" FontAttributes="Bold" />
+            <DatePicker x:Name="BitisTarihiPicker" />
+
+            <Label x:Name="KiralamaTarihiLabel" />
+
+            <Label Text="Vites:" FontAttributes="Bold" />
+            <Entry x:Name="VitesEntry" />
+
+            <Label Text="Günlük Fiyat:" FontAttributes="Bold" />
+            <Entry x:Name="GunlukFiyatEntry" Keyboard="Numeric" />
+
+            <Label Text="Aylık Fiyat:" FontAttributes="Bold" />
+            <Entry x:Name="AylikFiyatEntry" Keyboard="Numeric" />
+
+            
+
+            <Button Text="Düzenle" Clicked="OnDüzenleClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

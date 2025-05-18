@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             x:Class="MauiApp11.RentPage"
+             BackgroundColor="#121212"
+             BackgroundImageSource="arkaplan.jpg"
+             Title="">
+
+    <Grid x:Name="MainGrid" Padding="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="0" x:Name="FilterColumn" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Liste Alanı -->
+        <StackLayout Grid.Column="0" Spacing="10">
+            <!-- Filtre Toggle Butonu -->
+            <Button x:Name="BtnToggleFilter"
+                    Text="🔍"
+                    FontSize="24"
+                    WidthRequest="50"
+                    HeightRequest="50"
+                    BackgroundColor="#1976D2"
+                    TextColor="White"
+                    CornerRadius="25"
+                    HorizontalOptions="Start"
+                    Margin="0,10,0,0"
+                    Clicked="ToggleFilterPanel" />
+
+            <!-- Kiralama Listesi -->
+            <CollectionView x:Name="KiralamaListView"
+                            ItemsSource="{Binding RentList}"
+                            SelectionMode="Single"
+                            SelectionChanged="KiralamaListView_SelectionChanged"
+                            BackgroundColor="Transparent"
+                            Margin="0,10,0,0"
+                            VerticalOptions="FillAndExpand">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="#333"
+                               BackgroundColor="#1E1E1E"
+                               CornerRadius="15"
+                               Padding="15"
+                               HasShadow="True"
+                               Margin="0,0,0,10">
+                            <StackLayout Spacing="6">
+                                <Label Text="{Binding Baslik}" FontSize="22" TextColor="White" FontAttributes="Bold" />
+                                <StackLayout Orientation="Horizontal" Spacing="15">
+                                    <Label Text="{Binding Yil, StringFormat='Yıl: {0}'}" TextColor="#AAAAAA" FontSize="14"/>
+                                    <Label Text="{Binding Vites}" TextColor="#AAAAAA" FontSize="14"/>
+                                </StackLayout>
+                                <Label Text="{Binding GunlukFiyat, StringFormat='Günlük: ₺{0:N0}'}" TextColor="#4CAF50" FontSize="18" FontAttributes="Bold" />
+
+                                <Button Text="Kirala" 
+                                        BackgroundColor="#FF5722" 
+                                        TextColor="White" 
+                                        CornerRadius="10"
+                                        HeightRequest="40"
+                                        Clicked="KiralaButton_Clicked" />
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+
+        <!-- Filtre Paneli -->
+        <ScrollView Grid.Column="1" x:Name="FilterPanel" IsVisible="False" BackgroundColor="#1A1A1A" Padding="20" VerticalOptions="FillAndExpand">
+            <StackLayout Spacing="20" VerticalOptions="Center">
+                <Label Text="Filtreler"
+                       FontSize="28"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"
+                       Margin="0,0,0,20"/>
+
+                <Label Text="Marka" TextColor="White" FontSize="16" />
+                <Frame BackgroundColor="#333" CornerRadius="8" Padding="10" HasShadow="False">
+                    <Entry x:Name="MarkaEntry" Placeholder="Örn: BMW" TextColor="White" PlaceholderColor="#888" BackgroundColor="Transparent" />
+                </Frame>
+
+                <Label Text="Model" TextColor="White" FontSize="16" />
+                <Frame BackgroundColor="#333" CornerRadius="8" Padding="10" HasShadow="False">
+                    <Entry x:Name="ModelEntry" Placeholder="Örn: 320i" TextColor="White" PlaceholderColor="#888" BackgroundColor="Transparent" />
+                </Frame>
+
+                <Grid ColumnSpacing="15">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Column="0" Spacing="8">
+                        <Label Text="Min Fiyat" TextColor="White" FontSize="16" />
+                        <Frame BackgroundColor="#333" CornerRadius="8" Padding="10" HasShadow="False">
+                            <Entry x:Name="MinFiyatEntry" Placeholder="₺ Min" Keyboard="Numeric" TextColor="White" PlaceholderColor="#888" BackgroundColor="Transparent" />
+                        </Frame>
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="1" Spacing="8">
+                        <Label Text="Max Fiyat" TextColor="White" FontSize="16" />
+                        <Frame BackgroundColor="#333" CornerRadius="8" Padding="10" HasShadow="False">
+                            <Entry x:Name="MaxFiyatEntry" Placeholder="₺ Max" Keyboard="Numeric" TextColor="White" PlaceholderColor="#888" BackgroundColor="Transparent" />
+                        </Frame>
+                    </StackLayout>
+                </Grid>
+
+                <Label Text="Yıl" TextColor="White" FontSize="16" />
+                <Frame BackgroundColor="#333" CornerRadius="8" Padding="10" HasShadow="False">
+                    <Entry x:Name="YilEntry" Placeholder="Örn: 2020" Keyboard="Numeric" TextColor="White" PlaceholderColor="#888" BackgroundColor="Transparent" />
+                </Frame>
+
+                <Label Text="Vites" TextColor="White" FontSize="16" />
+                <Frame BackgroundColor="#333" CornerRadius="8" Padding="0" HasShadow="False">
+                    <Picker x:Name="VitesPicker" Title="Seçiniz"
+        TextColor="White"
+        BackgroundColor="Transparent"
+        TitleColor="#888">
+                        <Picker.ItemsSource>
+                            <x:String>Otomatik</x:String>
+                            <x:String>Manuel</x:String>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </Frame>
+                
+                
+                <StackLayout Padding="20">
+
+                    <DatePicker x:Name="BaslangicDatePicker" 
+                Format="yyyy-MM-dd"
+                MinimumDate="{x:Static sys:DateTime.Today}" />
+
+                    <DatePicker x:Name="BitisDatePicker" 
+                Format="yyyy-MM-dd"
+                MinimumDate="{x:Static sys:DateTime.Today}" />
+
+                    <Button Text="Kirala" Clicked="KiralaButton_Clicked" />
+
+                </StackLayout>
+
+
+
+
+                <!-- Butonlar -->
+                <StackLayout Orientation="Horizontal" Spacing="15" HorizontalOptions="Center">
+                    <Button Text="Filtrele"
+                            BackgroundColor="#4CAF50"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            Clicked="FiltreleButton_Clicked"
+                            CornerRadius="12"
+                            HeightRequest="48"
+                            WidthRequest="140" />
+                    <Button Text="Filtreleri Temizle"
+                            BackgroundColor="#E53935"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            Clicked="FiltreTemizleButton_Clicked"
+                            CornerRadius="12"
+                            HeightRequest="48"
+                            WidthRequest="140" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

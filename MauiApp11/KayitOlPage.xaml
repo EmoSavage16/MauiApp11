@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp11.KayitOlPage"
+             Title="">
+
+    <Grid>
+
+        <!-- Arka Plan Resmi -->
+        <Image Source="arkaplan.jpg"
+               Aspect="AspectFill"
+               Opacity="1"
+               ZIndex="-3" />
+
+        <!-- Sayfa İçeriği -->
+        <ScrollView>
+            <VerticalStackLayout Padding="30" Spacing="25" VerticalOptions="CenterAndExpand">
+
+                <!-- Logo -->
+                <Image Source="logo.png"
+                       HeightRequest="200"
+                       WidthRequest="300"
+                       HorizontalOptions="Center" />
+
+                <!-- Başlık -->
+                <Label Text="Yeni Hesap Oluşturun"
+                       FontSize="16"
+                       HorizontalOptions="Center"
+                       TextColor="#BBBBBB"
+                       Margin="0,-10,0,20"/>
+
+                <!-- Ad Girişi -->
+                <Entry x:Name="AdEntry"
+                       Placeholder="Ad"
+                       TextColor="White"
+                       PlaceholderColor="#888"
+                       BackgroundColor="Transparent" />
+
+                <!-- Soyad Girişi -->
+                <Entry x:Name="SoyadEntry"
+                       Placeholder="Soyad"
+                       TextColor="White"
+                       PlaceholderColor="#888"
+                       BackgroundColor="Transparent" />
+
+                <!-- E-posta Girişi -->
+                <Entry x:Name="EpostaEntry"
+                       Placeholder="E-posta"
+                       Keyboard="Email"
+                       TextColor="White"
+                       PlaceholderColor="#888"
+                       BackgroundColor="Transparent" />
+
+                <!-- Şifre Girişi -->
+                <Entry x:Name="SifreEntry"
+                       Placeholder="Şifre"
+                       IsPassword="True"
+                       TextColor="White"
+                       PlaceholderColor="#888"
+                       BackgroundColor="Transparent" />
+
+                <!-- Kayıt Ol Butonu -->
+                <Border StrokeThickness="0"
+        StrokeShape="RoundRectangle 15"
+        HeightRequest="45"
+        WidthRequest="150"
+        HorizontalOptions="Center"
+        Margin="0,10,0,0">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="#36D1DC" Offset="0.0" />
+                            <GradientStop Color="#5B86E5" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Button Text="Kayıt Ol"
+            Clicked="OnKayitButtonClicked"
+            BackgroundColor="Transparent"
+            TextColor="White"
+            FontAttributes="Bold"
+            CornerRadius="15" />
+                </Border>
+
+                <!-- Zaten hesabınız var mı? Giriş Yap -->
+                <Label HorizontalOptions="Center"
+       FontSize="14"
+       TextColor="LightGray"
+       Margin="0,10,0,0">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Zaten bir hesabınız var mı? " />
+                            <Span Text="Giriş Yap"
+                  TextColor="#00BFFF"
+                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnGirisYapTapped" />
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+    </Grid>
+</ContentPage>

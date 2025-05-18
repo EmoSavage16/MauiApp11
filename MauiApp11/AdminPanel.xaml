@@ -1,0 +1,107 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp11.AdminPanel"
+             Title=""
+             BackgroundColor="#121212">
+
+    <Grid>
+
+        <ScrollView>
+            <VerticalStackLayout Spacing="0" Padding="0">
+
+                <!-- Galeri Yönet -->
+                <Grid HeightRequest="220">
+                    <Image Source="galeri.png" Aspect="AspectFill" />
+                    <BoxView BackgroundColor="#80000000" />
+                    <Label Text="Galeri Yönet"
+                           TextColor="White"
+                           FontSize="32"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnGaleriYonetClicked" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+
+                <!-- Temizleme Yönet -->
+                <Grid HeightRequest="220">
+                    <Image Source="temizlik.png" Aspect="AspectFill" />
+                    <BoxView BackgroundColor="#80000000" />
+                    <Label Text="Temizleme Yönet"
+                           TextColor="White"
+                           FontSize="32"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTemizlemeYonetClicked" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+
+                <!-- Kiralama Yönet -->
+                <Grid HeightRequest="220">
+                    <Image Source="rent.png" Aspect="AspectFill" />
+                    <BoxView BackgroundColor="#80000000" />
+                    <Label Text="Kiralama Yönet"
+                           TextColor="White"
+                           FontSize="32"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnKiralamaYonetClicked" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+                
+                <!-- Kiralanan Araçları Yönet -->
+                <Grid HeightRequest="220">
+                    <Image Source="kiralananlar.png" Aspect="AspectFill" />
+                    <BoxView BackgroundColor="#80000000" />
+                    <Label Text="Kiralanan Araçlar"
+           TextColor="White"
+           FontSize="32"
+           FontAttributes="Bold"
+           HorizontalOptions="Center"
+           VerticalOptions="Center" />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnKiralananAraclarYonetClicked" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+
+
+                <!-- Çalışanları Yönet -->
+                <Grid HeightRequest="220">
+                    <Image Source="calisan.jpg" Aspect="AspectFill" />
+                    <BoxView BackgroundColor="#80000000" />
+                    <Label Text="Çalışanları Yönet"
+                           TextColor="White"
+                           FontSize="32"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCalisanlariYonetClicked" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Çıkış Yap Butonu -->
+        <ImageButton
+    x:Name="btnCikis"
+    Source="cikis.png"
+    BackgroundColor="Transparent"
+    WidthRequest="50"
+    HeightRequest="50"
+    HorizontalOptions="End"
+    VerticalOptions="End"
+    Margin="20"
+    Clicked="OnCikisYapClicked"
+    Padding="0" />
+
+
+
+    </Grid>
+</ContentPage>

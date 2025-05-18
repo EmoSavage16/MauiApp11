@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MauiApp11"
+             x:Class="MauiApp11.TemizlemeYonet"
+             x:Name=""
+             BackgroundColor="#1C1C1E"
+             Padding="0">
+
+    <ScrollView>
+        <StackLayout Spacing="20" Padding="20">
+
+            <!-- Başlık -->
+            <Label Text="İşlemler Yönetimi" FontSize="24" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center" />
+
+            <!-- Liste -->
+            <CollectionView ItemsSource="{Binding TemizlikListesi}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="#2C2C2E" Padding="10" CornerRadius="8" Margin="0,5" BorderColor="Gray">
+                            <StackLayout>
+                                <Label Text="{Binding IslemAdi}" FontSize="16" TextColor="White"/>
+                                <Label Text="{Binding AracTuru}" FontSize="13" TextColor="Gray"/>
+                                <Label Text="{Binding Fiyat, StringFormat='Fiyat: {0:C2}'}" FontSize="13" TextColor="LightGreen"/>
+                                <Label Text="{Binding Sure, StringFormat='Süre: {0} dk'}" FontSize="13" TextColor="LightGray"/>
+                                <Label Text="{Binding Kategori}" FontSize="13" TextColor="Orange"/>
+                                <Label Text="{Binding Durum}" FontSize="13" TextColor="LightBlue"/>
+                                <Label Text="{Binding Plaka, FallbackValue='Plaka Bilgisi Yok'}" TextColor="White"/>
+
+                                <!-- Durum Seçme ve Güncelleme -->
+                                <StackLayout Orientation="Horizontal" Spacing="10" VerticalOptions="Center">
+                                    <Picker Title="Durum Seç"
+                                            WidthRequest="150"
+                                            SelectedItem="{Binding Durum}"
+                                            ItemsSource="{x:Static local:Durumlar.DurumSecenekleri}"
+                                            TextColor="White"
+                                            BackgroundColor="#3A3A3C" />
+
+                                    <Button Text="Güncelle"
+            BackgroundColor="#007AFF"
+            TextColor="White"
+            CornerRadius="8"
+            Clicked="OnDurumGuncellePicker"/>
+                                </StackLayout>
+
+                                <!-- Silme Butonu -->
+                                <Button Text="Sil"
+        BackgroundColor="#FF3B30"
+        TextColor="White"
+        CornerRadius="8"
+        Clicked="OnIslemSil"/>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

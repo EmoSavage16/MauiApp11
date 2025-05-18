@@ -1,0 +1,88 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp11.KiraYonetPage"
+             Title="">
+
+    <StackLayout Padding="10" Spacing="10">
+
+        <!-- Yeni Kiralık Araba Ekle Butonu -->
+        <Button Text="Yeni Kiralık Araba Ekle"
+                BackgroundColor="#2196F3"
+                TextColor="White"
+                CornerRadius="10"
+                HeightRequest="50"
+                Clicked="OnYeniKiralikArabaEkleClicked" />
+
+        <Label Text="Kiralık Araçlar Listesi"
+               FontSize="Large"
+               HorizontalOptions="Center"
+               FontAttributes="Bold" />
+
+        <!-- Kiralama Listesi -->
+        <ListView x:Name="KiralamaListView" 
+                  ItemSelected="OnItemSelected"
+                  HasUnevenRows="True"
+                  SeparatorColor="Gray">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame BorderColor="#cccccc" CornerRadius="10" Margin="5" Padding="10">
+                            <StackLayout>
+
+                                <!-- Araç Başlık ve Açıklama -->
+                                <Label Text="{Binding Baslik}" FontSize="Medium" FontAttributes="Bold"/>
+                                <Label Text="{Binding Aciklama}" FontSize="Small" TextColor="Gray"/>
+
+                                <!-- Marka, Model, Yıl, Vites -->
+                                <StackLayout Orientation="Horizontal" Spacing="15" Margin="0,5,0,0">
+                                    <Label Text="{Binding KiralikMarka}" FontSize="Small"/>
+                                    <Label Text="{Binding KiralikModel}" FontSize="Small"/>
+                                    <Label Text="{Binding Yil}" FontSize="Small"/>
+                                    <Label Text="{Binding Vites}" FontSize="Small"/>
+                                </StackLayout>
+
+                                <!-- Fiyatlar ve Tarihler -->
+                                <StackLayout Orientation="Horizontal" Spacing="15" Margin="0,5,0,0">
+                                    <Label Text="Günlük: ₺{Binding GunlukFiyat}" FontSize="Small" />
+                                    <Label Text="Aylık: ₺{Binding AylikFiyat}" FontSize="Small" />
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" Spacing="10" Margin="0,5,0,0">
+                                    <Label Text="Başlangıç: " FontSize="Small" />
+                                    <Label Text="{Binding BaslangicTarihi, StringFormat='{0:dd.MM.yyyy}'}" FontSize="Small" />
+                                    <Label Text=" - " FontSize="Small"/>
+                                    <Label Text="Bitiş: " FontSize="Small" />
+                                    <Label Text="{Binding BitisTarihi, StringFormat='{0:dd.MM.yyyy}'}" FontSize="Small" />
+                                </StackLayout>
+
+                                <!-- Butonlar -->
+                                <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="End" Margin="0,10,0,0">
+                                    <Button Text="Düzenle"
+                                            Clicked="OnKiralamaDuzenleClicked"
+                                            BindingContext="{Binding .}"
+                                            BackgroundColor="#FFC107"
+                                            TextColor="Black"
+                                            CornerRadius="5"
+                                            WidthRequest="80" />
+
+                                    <Button Text="Sil"
+                                            Clicked="OnKiralamaSilClicked"
+                                            BindingContext="{Binding .}"
+                                            BackgroundColor="#F44336"
+                                            TextColor="White"
+                                            CornerRadius="5"
+                                            WidthRequest="80" />
+                                </StackLayout>
+
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+    </StackLayout>
+
+</ContentPage>

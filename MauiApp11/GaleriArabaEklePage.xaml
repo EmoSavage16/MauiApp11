@@ -1,0 +1,56 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp11.GaleriArabaEklePage"
+             Title=""
+             BackgroundColor="#1E1E1E">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Label Text="Yeni Araba Ekle"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="Center" />
+
+            <!-- Araç bilgileri -->
+            <Entry x:Name="MarkaEntry" Placeholder="Marka" TextColor="White" />
+            <Entry x:Name="ModelEntry" Placeholder="Model" TextColor="White" />
+            <Entry x:Name="YilEntry" Placeholder="Yıl" Keyboard="Numeric" TextColor="White" />
+            <Entry x:Name="YakitEntry" Placeholder="Yakıt" TextColor="White" />
+            <Entry x:Name="VitesEntry" Placeholder="Vites" TextColor="White" />
+            <Entry x:Name="KMEntry" Placeholder="Kilometre" Keyboard="Numeric" TextColor="White" />
+            <Entry x:Name="KasaTipiEntry" Placeholder="Kasa Tipi" TextColor="White" />
+            <Entry x:Name="MotorGucuEntry" Placeholder="Motor Gücü" TextColor="White" />
+            <Entry x:Name="MotorHacmiEntry" Placeholder="Motor Hacmi" Keyboard="Numeric" TextColor="White" />
+            <Entry x:Name="RenkEntry" Placeholder="Renk" TextColor="White" />
+            <Entry x:Name="FiyatEntry" Placeholder="Fiyat" Keyboard="Numeric" TextColor="White" />
+
+            <!-- Fotoğraf seçme butonu -->
+            <Button Text="Fotoğraf Seç" Clicked="OnFotoSecClicked"
+                    BackgroundColor="#2196F3" TextColor="White" CornerRadius="8" HeightRequest="40" />
+
+            <!-- Seçilen fotoğraflar carousel ile gösterilsin -->
+            <CarouselView x:Name="FotoCarousel"
+                          HeightRequest="250"
+                          ItemsSource="{Binding FotoListesi}"
+                          IsScrollAnimated="true"
+                          IsBounceEnabled="true"
+                          Loop="false">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Image Aspect="AspectFill" Source="{Binding}" />
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+
+            <Button Text="Araba Ekle"
+                    BackgroundColor="#4CAF50"
+                    TextColor="White"
+                    CornerRadius="10"
+                    HeightRequest="50"
+                    Clicked="OnArabaEkleClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

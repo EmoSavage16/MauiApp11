@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp11.HomePage"
+             Title="">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0" Padding="0">
+
+            <!-- Kiralama Button -->
+            <Grid HeightRequest="250">
+                <Image Source="rent.png" Aspect="AspectFill" />
+                <BoxView BackgroundColor="#80000000" />
+                <Label Text="Kiralama"
+                       TextColor="White"
+                       FontSize="32"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       FontAttributes="Bold" />
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnRentClicked" />
+                </Grid.GestureRecognizers>
+            </Grid>
+
+            <!-- Galeri Button -->
+            <Grid HeightRequest="250">
+                <Image Source="galeri.png" Aspect="AspectFill" />
+                <BoxView BackgroundColor="#80000000" />
+                <Label Text="Galeri"
+                       TextColor="White"
+                       FontSize="32"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       FontAttributes="Bold" />
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnGaleriClicked" />
+                </Grid.GestureRecognizers>
+            </Grid>
+
+            <!-- Temizlik Button -->
+            <Grid HeightRequest="250">
+                <Image Source="temizlik.png" Aspect="AspectFill" />
+                <BoxView BackgroundColor="#80000000" />
+                <Label Text="Temizlik"
+                       TextColor="White"
+                       FontSize="32"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       FontAttributes="Bold" />
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnTemizlikClicked" />
+                </Grid.GestureRecognizers>
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

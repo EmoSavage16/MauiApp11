@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp11.ArabaGuncellePage"
+             Title=""
+             BackgroundColor="#1E1E1E">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label Text="Araba Güncelle"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="Center" />
+
+            <Entry x:Name="MarkaEntry" Placeholder="Marka" />
+            <Entry x:Name="ModelEntry" Placeholder="Model" />
+            <Entry x:Name="YilEntry" Placeholder="Yıl" Keyboard="Numeric" />
+            <Entry x:Name="YakitEntry" Placeholder="Yakıt" />
+            <Entry x:Name="VitesEntry" Placeholder="Vites" />
+            <Entry x:Name="KMEntry" Placeholder="Kilometre" Keyboard="Numeric" />
+            <Entry x:Name="KasaTipiEntry" Placeholder="Kasa Tipi" />
+            <Entry x:Name="MotorGucuEntry" Placeholder="Motor Gücü" />
+            <Entry x:Name="MotorHacmiEntry" Placeholder="Motor Hacmi" Keyboard="Numeric" />
+            <Entry x:Name="RenkEntry" Placeholder="Renk" />
+            <Entry x:Name="FiyatEntry" Placeholder="Fiyat" Keyboard="Numeric" />
+
+            <Button Text="Kaydet"
+                    BackgroundColor="#FF9800"
+                    TextColor="White"
+                    CornerRadius="10"
+                    HeightRequest="50"
+                    Clicked="OnKaydetClicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

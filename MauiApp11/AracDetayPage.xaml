@@ -1,0 +1,69 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp11.AracDetayPage"
+             Title=""
+             BackgroundImageSource="arkaplan.jpg"
+             BackgroundColor="Black">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="10" Spacing="20">
+
+            <!-- Foto Carousel -->
+            <Frame HasShadow="True" CornerRadius="20" Padding="0" BackgroundColor="Transparent">
+                <CarouselView x:Name="FotoCarousel"
+                              HeightRequest="500"
+                              IsScrollAnimated="False"
+                              IsBounceEnabled="false"
+                              Loop="true"
+                              IndicatorView="fotoIndicator">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Image Aspect="AspectFill" Source="{Binding}" />
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+            </Frame>
+
+
+           
+            <!-- Butonlar -->
+            <Grid ColumnDefinitions="*,*" Margin="0,0,0,0">
+                <Button Text="⟵ Önceki"
+                        Clicked="OnOncekiClicked"
+                        BackgroundColor="#1E88E5"
+                        TextColor="White"
+                        CornerRadius="10"
+                        HeightRequest="50"
+                        FontAttributes="Bold"
+                        Grid.Column="0" />
+
+                <Button Text="Sonraki ⟶"
+                        Clicked="OnSonrakiClicked"
+                        BackgroundColor="#1E88E5"
+                        TextColor="White"
+                        CornerRadius="10"
+                        HeightRequest="50"
+                        FontAttributes="Bold"
+                        Grid.Column="1" />
+            </Grid>
+
+            <!-- Araç Bilgileri -->
+            <Frame CornerRadius="15" Padding="15" BackgroundColor="#1E1E1E" HasShadow="True">
+                <VerticalStackLayout Spacing="10">
+                    <Label x:Name="MarkaLabel" FontSize="22" TextColor="White" FontAttributes="Bold" />
+                    <Label x:Name="ModelLabel" FontSize="18" TextColor="White" />
+                    <Label x:Name="YilLabel" TextColor="LightGray" />
+                    <Label x:Name="YakitLabel" TextColor="LightGray" />
+                    <Label x:Name="VitesLabel" TextColor="LightGray" />
+                    <Label x:Name="KasaLabel" TextColor="LightGray" />
+                    <Label x:Name="MotorGucuLabel" TextColor="LightGray" />
+                    <Label x:Name="MotorHacmiLabel" TextColor="LightGray" />
+                    <Label x:Name="RenkLabel" TextColor="LightGray" />
+                    <Label x:Name="KMLabel" TextColor="LightGray" />
+                    <Label x:Name="FiyatLabel" FontSize="22" TextColor="#4CAF50" FontAttributes="Bold" />
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

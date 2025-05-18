@@ -1,0 +1,73 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp11.GaleriYonetPage"
+             Title=""
+             BackgroundColor="#121212">
+
+    <Grid Padding="10" RowSpacing="10" RowDefinitions="Auto,Auto,*">
+
+        <!-- Yeni Araç Ekle Butonu -->
+        <Button Grid.Row="0"
+                Text="Yeni Araç Ekle"
+                BackgroundColor="#2196F3"
+                TextColor="White"
+                CornerRadius="10"
+                HeightRequest="50"
+                Clicked="OnYeniAracEkleClicked" />
+
+        <!-- Başlık -->
+        <Label Grid.Row="1"
+               Text="Araç Listesi"
+               FontSize="Large"
+               HorizontalOptions="CenterAndExpand"
+               TextColor="White" />
+
+        <!-- Araç Listesi -->
+        <CollectionView Grid.Row="2"
+                        x:Name="AracListView"
+                        SelectionMode="None"
+                        BackgroundColor="Transparent"
+                        VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BackgroundColor="#1E1E1E"
+                           CornerRadius="10"
+                           Padding="10"
+                           Margin="0,30"
+                           HasShadow="True">
+                        <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto">
+                            <StackLayout Grid.Column="0" Spacing="2">
+                                <Label Text="{Binding Marka}" FontSize="Medium" TextColor="White"/>
+                                <Label Text="{Binding Model}" FontSize="Medium" TextColor="White"/>
+                                <Label Text="{Binding Yil}" FontSize="Small" TextColor="White"/>
+                                <Label Text="{Binding Yakit}" FontSize="Small" TextColor="White"/>
+                                <Label Text="{Binding Fiyat, StringFormat='Fiyat: {0:C}'}" FontSize="Small" TextColor="White"/>
+                            </StackLayout>
+
+                            <StackLayout Grid.Column="1" VerticalOptions="Center" Spacing="10">
+                                <Button Text="Düzenle"
+                                        Clicked="OnAracDuzenleClicked"
+                                        BindingContext="{Binding .}"
+                                        HeightRequest="40"
+                                        WidthRequest="80"
+                                        BackgroundColor="#FFC107"
+                                        TextColor="Black"
+                                        CornerRadius="8" />
+                                <Button Text="Sil"
+                                        Clicked="OnAracSilClicked"
+                                        BindingContext="{Binding .}"
+                                        HeightRequest="40"
+                                        WidthRequest="80"
+                                        BackgroundColor="#F44336"
+                                        TextColor="White"
+                                        CornerRadius="8" />
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
