@@ -1,20 +1,41 @@
-Bema Oto
-Bema Oto, C# ile geliştirilen hibrit bir otomotiv uygulamasıdır. 
-Kullanıcıların araç satın alabileceği, araç kiralayabileceği ve araç yıkama randevusu oluşturabileceği kapsamlı bir sistemdir.
-Hem masaüstü hem de web üzerinden erişilebilir bir yapıya sahiptir.
+# Bema Oto
 
-Özellikler
+Bema Oto, otomotiv sektörüne yönelik hibrit bir uygulama sistemidir. Proje hem PHP ile geliştirilmiş web tabanlı bir arayüzden hem de C# ile geliştirilmiş masaüstü uygulamasından oluşmaktadır. Kullanıcılar araç satın alma, kiralama ve araç yıkama randevusu oluşturma işlemlerini hem web üzerinden hem de masaüstü uygulamasıyla yapabilirler.
 
-- Kullanıcı girişi ve kayıt sistemi
-- Araç satın alma ve kiralama modülü
-- Araç yıkama için iç temizlik randevusu oluşturma
-- Web arayüzü üzerinden erişim imkanı
-- Veritabanından canlı veri çekme ve yönetme
+---
 
-Kullanılan Teknolojiler
+## Özellikler
 
-- C# (.NET Framework)
-- SQL Server (Veritabanı)
-- HTML / CSS /  (Web Sayfası İçeriği)
+- Kullanıcı kayıt ve giriş sistemi (Web & Masaüstü)  
+- Araç satın alma ve kiralama modülleri  
+- Araç yıkama için randevu oluşturma  
+- Hem web arayüzü (PHP, XAMPP) hem de masaüstü uygulama (C# .NET)  
+- Ortak veritabanı üzerinden veri senkronizasyonu (MySQL / SQL Server)  
 
+---
 
+## Kullanılan Teknolojiler
+
+- PHP (Web arayüzü)  
+- C# (.NET Framework - Masaüstü uygulama)  
+- MySQL veya SQL Server (Veritabanı)  
+- HTML, CSS, JavaScript (Web tasarımı)  
+- XAMPP (Yerel geliştirme ortamı)  
+
+---
+
+## Kurulum
+
+### Web Arayüzü (PHP)
+
+1. XAMPP kurulumu yap.  
+2. Projeyi htdocs klasörüne kopyala.  
+3. MySQL üzerinde veritabanını oluştur ve tabloları import et.  
+4. Tarayıcıda http://localhost/proje-adi adresinden eriş.  
+
+### Masaüstü Uygulama (C#)
+
+1. Visual Studio ile proje dosyasını aç.  
+2. Gerekli NuGet paketlerini yükle.  
+3. Veritabanı bağlantı ayarlarını güncelle.  
+4. Uygulamayı çalıştır ve test et.
