@@ -1,0 +1,678 @@
+-- MySQL dump 10.13  Distrib 8.0.41, for macos15 (x86_64)
+--
+-- Host: 127.0.0.1    Database: bemaotoveritabani
+-- ------------------------------------------------------
+-- Server version	9.2.0
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `arac_ilanlari`
+--
+
+DROP TABLE IF EXISTS `arac_ilanlari`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `arac_ilanlari` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `ilan_no` bigint NOT NULL,
+  `ilan_tarihi` date NOT NULL,
+  `marka` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `model` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `yil` int DEFAULT NULL,
+  `yakit` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `vites` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `km` int DEFAULT NULL,
+  `kasa_tipi` varchar(30) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `motor_gucu` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `motor_hacmi` int DEFAULT NULL,
+  `renk` varchar(30) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `fiyat` decimal(12,2) NOT NULL,
+  `arac_baslik` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `ilan_no` (`ilan_no`),
+  KEY `idx_yil` (`yil`),
+  KEY `idx_vites` (`vites`),
+  KEY `idx_marka` (`marka`),
+  KEY `idx_model` (`model`),
+  KEY `idx_renk` (`renk`),
+  KEY `idx_yakit` (`yakit`),
+  KEY `idx_kasa_tipi` (`kasa_tipi`),
+  CONSTRAINT `arac_ilanlari_chk_1` CHECK ((`km` >= 0))
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `arac_ilanlari`
+--
+
+LOCK TABLES `arac_ilanlari` WRITE;
+/*!40000 ALTER TABLE `arac_ilanlari` DISABLE KEYS */;
+INSERT INTO `arac_ilanlari` VALUES (12,410471,'2025-05-18','BMW','318i',2017,'Benzin','Otomatik',133500,'Sedan','136',1499,'Mavi',1695000.00,NULL),(13,225365,'2025-05-18','AUDI','TTS',2009,'Benzin','Otomatik',169000,'Coupe','272',1999,'Gümüş',1525000.00,NULL),(14,714207,'2025-05-18','MINI','COOPER',2023,'Benzin','Otomatik',7600,'Coupe','136',1499,'GRİ',1995000.00,NULL),(15,741237,'2025-05-18','TESLA','Model Y',2023,'Elektrik','Otomatik',45000,'Sedan','534',0,'Siyah',2375000.00,NULL),(16,121575,'2025-05-18','VOLKSWAGEN','TIGUAN',2021,'Benzin','Otomatik',49000,'SUV','150',1498,'Lacivert',2365000.00,NULL),(17,590367,'2025-05-18','LAND ROVER','DISCOVERY',2022,'Benzin','Otomatik',12500,'SUV','300',1997,'GRİ',5875000.00,NULL),(18,960823,'2025-05-18','MERCEDES','G',2020,'Dizel','Otomatik',126000,'SUV','286',2925,'Siyah',9750000.00,NULL),(19,487437,'2025-05-18','JAGUAR','E-TYPE',1974,'Benzin','Otomatik',69000,'Cabrio','272',5344,'Kahverengi',7650000.00,NULL),(20,709799,'2025-05-18','VOLKSWAGEN','PASSAT',2017,'Dizel','Otomatik',122000,'Sedan','120',1598,'Siyah',1645000.00,NULL),(21,412226,'2025-05-18','AUDI','A7',2022,'Dizel','Otomatik',46000,'Sedan','204',1968,'Gümüş',5495000.00,NULL);
+/*!40000 ALTER TABLE `arac_ilanlari` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2025-05-18 20:16:38
+-- MySQL dump 10.13  Distrib 8.0.41, for macos15 (x86_64)
+--
+-- Host: 127.0.0.1    Database: bemaotoveritabani
+-- ------------------------------------------------------
+-- Server version	9.2.0
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `calisanlar`
+--
+
+DROP TABLE IF EXISTS `calisanlar`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `calisanlar` (
+  `calisan_id` int NOT NULL AUTO_INCREMENT,
+  `ad` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `soyad` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `pozisyon` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `email` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `telefon` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `maas` decimal(12,2) DEFAULT NULL,
+  PRIMARY KEY (`calisan_id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `calisanlar`
+--
+
+LOCK TABLES `calisanlar` WRITE;
+/*!40000 ALTER TABLE `calisanlar` DISABLE KEYS */;
+INSERT INTO `calisanlar` VALUES (2,'Mehmet','Biçer','Satış Uzmanı','mehmetbe867@gmail.com','05458011253',6000.00),(3,'Kerem','Varlı','Yönetici','keremvarli@gmail.com','05553456789',9000.00),(4,'Bekir','Yılmaz','Muhasebe','bekiryilmaz@gmail.com','05554567890',4500.00),(5,'Emirhan','Filiz','Araç Uzmanı','emirhanfiliz@gmail.com','05555678901',6000.00),(6,'Ali ','Yılmaz','Araç Temizlik','aliyilmaz@gmail.com','05551234567',4000.00),(10,'Samet','Doğan','Araç Temizlik','sametdogan@gmail.com','0545412345',4000.00);
+/*!40000 ALTER TABLE `calisanlar` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2025-05-18 20:16:38
+-- MySQL dump 10.13  Distrib 8.0.41, for macos15 (x86_64)
+--
+-- Host: 127.0.0.1    Database: bemaotoveritabani
+-- ------------------------------------------------------
+-- Server version	9.2.0
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `kiralama`
+--
+
+DROP TABLE IF EXISTS `kiralama`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `kiralama` (
+  `kiralama_id` int NOT NULL AUTO_INCREMENT,
+  `kiralik_marka` varchar(50) DEFAULT NULL,
+  `kiralik_model` varchar(50) DEFAULT NULL,
+  `baslik` varchar(100) DEFAULT NULL,
+  `aciklama` text,
+  `vites` varchar(20) DEFAULT NULL,
+  `yil` int DEFAULT NULL,
+  `gunluk_fiyat` decimal(12,2) DEFAULT NULL,
+  `aylik_fiyat` decimal(12,2) DEFAULT NULL,
+  `baslangic_tarihi` date DEFAULT NULL,
+  `bitis_tarihi` date DEFAULT NULL,
+  PRIMARY KEY (`kiralama_id`),
+  KEY `idx_marka_model_yil_vites` (`kiralik_marka`,`kiralik_model`,`yil`,`vites`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `kiralama`
+--
+
+LOCK TABLES `kiralama` WRITE;
+/*!40000 ALTER TABLE `kiralama` DISABLE KEYS */;
+INSERT INTO `kiralama` VALUES (13,'VOLKSWAGEN','GOLF',NULL,'Günlük ihtiyaçlara uygun Golf.','Manuel',2018,1350.00,40500.00,NULL,NULL),(14,'BMW','530i',NULL,'Lüks ve konfor bir arada.','Otomatik',2017,2300.00,69000.00,NULL,NULL),(15,'AUDI','A4',NULL,'Kişisel ihtiyaçlar için bire bir.','Otomatik',2016,1700.00,51000.00,NULL,NULL),(16,'RENAULT','FLUENCE',NULL,'Bütçe dostu sorunsuz Fluence.','Otomatik',2016,1000.00,30000.00,NULL,NULL),(17,'BMW','430i',NULL,'Keyifli vakitler için.','Otomatik',2018,4000.00,120000.00,NULL,NULL),(18,'MERCEDES','C180',NULL,'Yıldız severler için.','Otomatik',2015,2000.00,60000.00,NULL,NULL),(19,'FORD','COURIER',NULL,'İşleriniz için ticari araç.','Manuel',2015,1600.00,48000.00,NULL,NULL),(20,'BMW','320D',NULL,'Sürüşün keyfini çıkarın.','Otomatik',2013,2200.00,66000.00,NULL,NULL),(21,'MERCEDES','A180',NULL,'Hayatınızı kolaylaştıracak bir araç.','Otomatik',2016,1500.00,45000.00,NULL,NULL),(22,'OPEL','CROSSLAND',NULL,'Aileler için uygun.','Otomatik',2024,1900.00,57000.00,NULL,NULL);
+/*!40000 ALTER TABLE `kiralama` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2025-05-18 20:16:38
+-- MySQL dump 10.13  Distrib 8.0.41, for macos15 (x86_64)
+--
+-- Host: 127.0.0.1    Database: bemaotoveritabani
+-- ------------------------------------------------------
+-- Server version	9.2.0
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `kiralanan_araclar`
+--
+
+DROP TABLE IF EXISTS `kiralanan_araclar`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `kiralanan_araclar` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `kullanici_id` int NOT NULL,
+  `kiralama_id` int NOT NULL,
+  `kiralama_tarihi` date NOT NULL,
+  `teslim_tarihi` date NOT NULL,
+  `toplam_fiyat` decimal(12,2) NOT NULL,
+  `durum` varchar(50) DEFAULT 'kirada',
+  PRIMARY KEY (`id`),
+  KEY `kullanici_id` (`kullanici_id`),
+  KEY `kiralama_id` (`kiralama_id`),
+  CONSTRAINT `kiralanan_araclar_ibfk_1` FOREIGN KEY (`kullanici_id`) REFERENCES `kullanicilar` (`kullanici_id`),
+  CONSTRAINT `kiralanan_araclar_ibfk_2` FOREIGN KEY (`kiralama_id`) REFERENCES `kiralama` (`kiralama_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `kiralanan_araclar`
+--
+
+LOCK TABLES `kiralanan_araclar` WRITE;
+/*!40000 ALTER TABLE `kiralanan_araclar` DISABLE KEYS */;
+INSERT INTO `kiralanan_araclar` VALUES (13,9,17,'2025-05-18','2025-05-25',32000.00,'kirada');
+/*!40000 ALTER TABLE `kiralanan_araclar` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2025-05-18 20:16:39
+-- MySQL dump 10.13  Distrib 8.0.41, for macos15 (x86_64)
+--
+-- Host: 127.0.0.1    Database: bemaotoveritabani
+-- ------------------------------------------------------
+-- Server version	9.2.0
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `kullanicilar`
+--
+
+DROP TABLE IF EXISTS `kullanicilar`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `kullanicilar` (
+  `kullanici_id` int NOT NULL AUTO_INCREMENT,
+  `ad` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `soyad` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `sifre` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`kullanici_id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `kullanicilar`
+--
+
+LOCK TABLES `kullanicilar` WRITE;
+/*!40000 ALTER TABLE `kullanicilar` DISABLE KEYS */;
+INSERT INTO `kullanicilar` VALUES (1,'Emirhan','Filiz','emirhanfiliz707@gmail.com','123456Emirhan'),(2,'bekir','yılmaz','bekiryilmaz7@gmail.com','123456789Bekiir'),(3,'Ayşe','Demir','ayse.demir@example.com','sifre789'),(9,'Mehmet','Biçer','mehmet@gmail.com','$2y$10$jL.FTIOizIFMuqPSx0C8uOrd06KgGIOMK8G7hV7fX7Y5unsxf2T8y'),(12,'samet','doğan','sametdogann@gmail.com','$2y$10$aHCQaJAV6/r6QKKcTQNQpu4csDqnRfef6PiRuJQSkJo3BP9Y4m30e'),(13,'Eren','Yıldız','eren@gmail.com','$2y$10$bR.h5upTLiUUzovsnjf9m.Y.Q3BQ906fmlXaOA9Pah2TtykG9WlkW');
+/*!40000 ALTER TABLE `kullanicilar` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `kullanicilar_after_insert` AFTER INSERT ON `kullanicilar` FOR EACH ROW BEGIN
+    INSERT INTO kullanicilar_log (kullanici_id, islem_tipi, islem_tarihi)
+    VALUES (NEW.kullanici_id, 'INSERT', NOW());
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2025-05-18 20:16:38
+-- MySQL dump 10.13  Distrib 8.0.41, for macos15 (x86_64)
+--
+-- Host: 127.0.0.1    Database: bemaotoveritabani
+-- ------------------------------------------------------
+-- Server version	9.2.0
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `kullanicilar_log`
+--
+
+DROP TABLE IF EXISTS `kullanicilar_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `kullanicilar_log` (
+  `log_id` int NOT NULL AUTO_INCREMENT,
+  `kullanici_id` int DEFAULT NULL,
+  `islem_tipi` varchar(20) DEFAULT NULL,
+  `islem_tarihi` datetime DEFAULT NULL,
+  PRIMARY KEY (`log_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `kullanicilar_log`
+--
+
+LOCK TABLES `kullanicilar_log` WRITE;
+/*!40000 ALTER TABLE `kullanicilar_log` DISABLE KEYS */;
+INSERT INTO `kullanicilar_log` VALUES (1,13,'INSERT','2025-05-18 19:51:54');
+/*!40000 ALTER TABLE `kullanicilar_log` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2025-05-18 20:16:38
+-- MySQL dump 10.13  Distrib 8.0.41, for macos15 (x86_64)
+--
+-- Host: 127.0.0.1    Database: bemaotoveritabani
+-- ------------------------------------------------------
+-- Server version	9.2.0
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Temporary view structure for view `vw_otomatik_kiralik_araclar`
+--
+
+DROP TABLE IF EXISTS `vw_otomatik_kiralik_araclar`;
+/*!50001 DROP VIEW IF EXISTS `vw_otomatik_kiralik_araclar`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `vw_otomatik_kiralik_araclar` AS SELECT 
+ 1 AS `kiralik_marka`,
+ 1 AS `kiralik_model`,
+ 1 AS `yil`,
+ 1 AS `gunluk_fiyat`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vw_yeni_ve_pahali_araclar`
+--
+
+DROP TABLE IF EXISTS `vw_yeni_ve_pahali_araclar`;
+/*!50001 DROP VIEW IF EXISTS `vw_yeni_ve_pahali_araclar`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `vw_yeni_ve_pahali_araclar` AS SELECT 
+ 1 AS `ilan_no`,
+ 1 AS `marka`,
+ 1 AS `model`,
+ 1 AS `yil`,
+ 1 AS `fiyat`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vw_kiralik_araclar`
+--
+
+DROP TABLE IF EXISTS `vw_kiralik_araclar`;
+/*!50001 DROP VIEW IF EXISTS `vw_kiralik_araclar`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `vw_kiralik_araclar` AS SELECT 
+ 1 AS `kiralik_marka`,
+ 1 AS `kiralik_model`,
+ 1 AS `yil`,
+ 1 AS `vites`,
+ 1 AS `gunluk_fiyat`,
+ 1 AS `aylik_fiyat`,
+ 1 AS `baslangic_tarihi`,
+ 1 AS `bitis_tarihi`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `vw_arac_ozet`
+--
+
+DROP TABLE IF EXISTS `vw_arac_ozet`;
+/*!50001 DROP VIEW IF EXISTS `vw_arac_ozet`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `vw_arac_ozet` AS SELECT 
+ 1 AS `marka`,
+ 1 AS `model`,
+ 1 AS `yil`,
+ 1 AS `yakit`,
+ 1 AS `vites`,
+ 1 AS `renk`,
+ 1 AS `fiyat`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Final view structure for view `vw_otomatik_kiralik_araclar`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_otomatik_kiralik_araclar`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_otomatik_kiralik_araclar` AS select `kiralama`.`kiralik_marka` AS `kiralik_marka`,`kiralama`.`kiralik_model` AS `kiralik_model`,`kiralama`.`yil` AS `yil`,`kiralama`.`gunluk_fiyat` AS `gunluk_fiyat` from `kiralama` where (`kiralama`.`vites` = 'Otomatik') */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_yeni_ve_pahali_araclar`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_yeni_ve_pahali_araclar`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_yeni_ve_pahali_araclar` AS select `arac_ilanlari`.`ilan_no` AS `ilan_no`,`arac_ilanlari`.`marka` AS `marka`,`arac_ilanlari`.`model` AS `model`,`arac_ilanlari`.`yil` AS `yil`,`arac_ilanlari`.`fiyat` AS `fiyat` from `arac_ilanlari` where ((`arac_ilanlari`.`yil` >= 2020) and (`arac_ilanlari`.`fiyat` > 750000)) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_kiralik_araclar`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_kiralik_araclar`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_kiralik_araclar` AS select `kiralama`.`kiralik_marka` AS `kiralik_marka`,`kiralama`.`kiralik_model` AS `kiralik_model`,`kiralama`.`yil` AS `yil`,`kiralama`.`vites` AS `vites`,`kiralama`.`gunluk_fiyat` AS `gunluk_fiyat`,`kiralama`.`aylik_fiyat` AS `aylik_fiyat`,`kiralama`.`baslangic_tarihi` AS `baslangic_tarihi`,`kiralama`.`bitis_tarihi` AS `bitis_tarihi` from `kiralama` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_arac_ozet`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_arac_ozet`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_arac_ozet` AS select `arac_ilanlari`.`marka` AS `marka`,`arac_ilanlari`.`model` AS `model`,`arac_ilanlari`.`yil` AS `yil`,`arac_ilanlari`.`yakit` AS `yakit`,`arac_ilanlari`.`vites` AS `vites`,`arac_ilanlari`.`renk` AS `renk`,`arac_ilanlari`.`fiyat` AS `fiyat` from `arac_ilanlari` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Dumping events for database 'bemaotoveritabani'
+--
+
+--
+-- Dumping routines for database 'bemaotoveritabani'
+--
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2025-05-18 20:16:39
+-- MySQL dump 10.13  Distrib 8.0.41, for macos15 (x86_64)
+--
+-- Host: 127.0.0.1    Database: bemaotoveritabani
+-- ------------------------------------------------------
+-- Server version	9.2.0
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `temizlik`
+--
+
+DROP TABLE IF EXISTS `temizlik`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `temizlik` (
+  `temizlik_id` int NOT NULL AUTO_INCREMENT,
+  `islem_adi` varchar(100) NOT NULL,
+  `arac_turu` enum('SUV','Sedan','Hatchback','MPV','Crossover') NOT NULL,
+  `fiyat` decimal(12,2) NOT NULL,
+  `plaka` varchar(20) DEFAULT NULL,
+  `sure` int DEFAULT NULL,
+  `kategori` enum('Dış Temizlik','İç Temizlik','Cam Filmi','PPF','İç Dış Yıkama') NOT NULL,
+  `durum` enum('Tamamlandı','İşlemde','Beklemede') DEFAULT 'Beklemede',
+  PRIMARY KEY (`temizlik_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `temizlik`
+--
+
+LOCK TABLES `temizlik` WRITE;
+/*!40000 ALTER TABLE `temizlik` DISABLE KEYS */;
+INSERT INTO `temizlik` VALUES (41,'PPF İşlemi','Sedan',1300.00,'34 MHZ 400',210,'PPF','Beklemede'),(42,'Güneş Filmi','SUV',500.00,'34 MHT 54',90,'Cam Filmi','Beklemede'),(43,'Temizlik','Hatchback',280.00,'34 BCR 41',60,'İç Dış Yıkama','Beklemede');
+/*!40000 ALTER TABLE `temizlik` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2025-05-18 20:16:38
+-- MySQL dump 10.13  Distrib 8.0.41, for macos15 (x86_64)
+--
+-- Host: 127.0.0.1    Database: bemaotoveritabani
+-- ------------------------------------------------------
+-- Server version	9.2.0
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `arac_ilanlari_foto`
+--
+
+DROP TABLE IF EXISTS `arac_ilanlari_foto`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `arac_ilanlari_foto` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `ilan_no` bigint NOT NULL,
+  `foto` longblob,
+  PRIMARY KEY (`id`),
+  KEY `ilan_no` (`ilan_no`),
+  CONSTRAINT `arac_ilanlari_foto_ibfk_1` FOREIGN KEY (`ilan_no`) REFERENCES `arac_ilanlari` (`ilan_no`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+---- MySQL dump 10.13  Distrib 8.0.41, for macos15 (x86_64)
+--
+-- Host: 127.0.0.1    Database: bemaotoveritabani
+-- ------------------------------------------------------
+-- Server version	9.2.0
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `kiralama_foto`
+--
+
+DROP TABLE IF EXISTS `kiralama_foto`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `kiralama_foto` (
+  `foto_id` int NOT NULL AUTO_INCREMENT,
+  `kiralama_id` int NOT NULL,
+  `foto_data` longblob NOT NULL,
+  PRIMARY KEY (`foto_id`),
+  KEY `kiralama_id` (`kiralama_id`),
+  CONSTRAINT `kiralama_foto_ibfk_1` FOREIGN KEY (`kiralama_id`) REFERENCES `kiralama` (`kiralama_id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
