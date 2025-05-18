@@ -1,6 +1,6 @@
 # Bema Oto
 
-Bema Oto, otomotiv sektörüne yönelik hibrit bir uygulama sistemidir. Proje hem PHP ile geliştirilmiş web tabanlı bir arayüzden hem de C# ile geliştirilmiş masaüstü uygulamasından oluşmaktadır. Kullanıcılar araç satın alma, kiralama ve araç yıkama randevusu oluşturma işlemlerini hem web üzerinden hem de masaüstü uygulamasıyla yapabilirler.
+Bema Oto, otomotiv sektörüne yönelik hibrit bir uygulama sistemidir. Proje hem PHP ile geliştirilmiş web tabanlı bir arayüzden hem de C# ile geliştirilmiş mobil uygulamasından oluşmaktadır. Kullanıcılar araç satın alma, kiralama ve araç yıkama randevusu oluşturma işlemlerini hem web üzerinden hem de mobil uygulamasıyla yapabilirler.
 
 ---
 
@@ -33,7 +33,7 @@ Bema Oto, otomotiv sektörüne yönelik hibrit bir uygulama sistemidir. Proje he
 3. MySQL üzerinde veritabanını oluştur ve tabloları import et.  
 4. Tarayıcıda http://localhost/proje-adi adresinden eriş.  
 
-### Masaüstü Uygulama (C#)
+### mobil (C#)
 
 1. Visual Studio ile proje dosyasını aç.  
 2. Gerekli NuGet paketlerini yükle.  
