@@ -27,7 +27,12 @@ Kullanıcılar araç satın alma, kiralama ve araç yıkama randevusu oluşturma
 ---
 
 ## Kurulum
+## 🔧 Veritabanı Kurulumu
 
+Projeyi başlatmadan önce veritabanını oluşturmanız gerekiyor.  
+Aşağıdaki bağlantıya tıklayarak SQL sorgularını içeren dosyayı indirebilirsiniz:
+
+📥 [sql.txt dosyasını indir](./sql.txt)
 ### Web Arayüzü (PHP)
 
 1. XAMPP kurulumu yap.  
